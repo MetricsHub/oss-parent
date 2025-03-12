@@ -1,8 +1,8 @@
 # OSS Parent
 
-![License](https://img.shields.io/github/license/sentrysoftware/oss-parent)
+![License](https://img.shields.io/github/license/metricshub/oss-parent)
 
-Open Source Software Maven parent POM. All Sentry Software's open-source Java projects must inherit this POM.
+Open Source Software Maven parent POM. All MetricsHub's open-source Java projects must inherit this POM.
 
 ## Build instructions
 
@@ -20,9 +20,9 @@ You can use this parent POM by adding the following `parent` element to the begi
 
 ```xml
 <parent>
-    <groupId>org.sentrysoftware</groupId>
+    <groupId>org.metricshub</groupId>
     <artifactId>oss-parent</artifactId>
-    <version>2</version>
+    <version>3</version>
 </parent>
 ```
 

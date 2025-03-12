@@ -16,6 +16,11 @@ on:
         required: true
         default: ""
 
+permissions:
+  id-token: write
+  contents: write
+  pages: write
+
 jobs:
   release:
     uses: sentrysoftware/workflows/.github/workflows/maven-central-release.yml@main
