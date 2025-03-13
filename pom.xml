@@ -410,11 +410,13 @@
 			<id>maven-central</id>
 			<activation>
 				<property>
-					<name>env.OSSRH_TOKEN</name>
+					<name>env.MAVEN_CENTRAL_TOKEN</name>
 				</property>
 			</activation>
+			<properties>
+				<maven.deploy.skip>true</maven.deploy.skip>
+			</properties>
 			<build>
-
 				<plugins>
 
 					<!-- Replaces the default Maven Deploy plugin -->
@@ -424,7 +426,7 @@
 						<artifactId>central-publishing-maven-plugin</artifactId>
 						<extensions>true</extensions>
 						<configuration>
-							<publishingServerId>ossrh</publishingServerId>
+							<publishingServerId>central</publishingServerId>
 							<autoPublish>${env.AUTO_RELEASE_AFTER_CLOSE}</autoPublish>
 							<centralSnapshotsUrl>https://central.sonatype.com/repository/maven-snapshots/</centralSnapshotsUrl>
 						</configuration>
