@@ -18,13 +18,6 @@
 	<url>https://metricshub.org/oss-parent</url>
 	<inceptionYear>2025</inceptionYear>
 
-	<distributionManagement>
-		<snapshotRepository>
-			<id>ossrh</id>
-			<url>https://central.sonatype.com/repository/maven-snapshots/</url>
-		</snapshotRepository>
-	</distributionManagement>
-
 	<licenses>
 		<license>
 			<name>Apache-2.0</name>
@@ -412,6 +405,35 @@
 			</build>
 		</profile>
 
+		<!-- Profile to deploy on Maven Central -->
+		<profile>
+			<id>maven-central</id>
+			<activation>
+				<property>
+					<name>env.OSSRH_TOKEN</name>
+				</property>
+			</activation>
+			<build>
+
+				<plugins>
+
+					<!-- Replaces the default Maven Deploy plugin -->
+					<!-- publishes on https://central.sonatype.com -->
+					<plugin>
+						<groupId>org.sonatype.central</groupId>
+						<artifactId>central-publishing-maven-plugin</artifactId>
+						<extensions>true</extensions>
+						<configuration>
+							<publishingServerId>ossrh</publishingServerId>
+							<autoPublish>${env.AUTO_RELEASE_AFTER_CLOSE}</autoPublish>
+							<centralSnapshotsUrl>https://central.sonatype.com/repository/maven-snapshots/</centralSnapshotsUrl>
+						</configuration>
+					</plugin>
+
+				</plugins>
+			</build>
+		</profile>
+
 		<!-- Profile for releasing the project -->
 		<profile>
 			<id>release</id>
@@ -437,17 +459,6 @@
 								</configuration>
 							</execution>
 						</executions>
-					</plugin>
-
-					<!-- Maven Central (Sonatype) publishing https://central.sonatype.com -->
-					<plugin>
-						<groupId>org.sonatype.central</groupId>
-						<artifactId>central-publishing-maven-plugin</artifactId>
-						<extensions>true</extensions>
-						<configuration>
-							<serverId>ossrh</serverId>
-							<autoPublish>${env.AUTO_RELEASE_AFTER_CLOSE}</autoPublish>
-						</configuration>
 					</plugin>
 
 					<!-- release -->
