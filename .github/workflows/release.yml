@@ -15,6 +15,11 @@ on:
         description: "New SNAPSHOT version"
         required: true
         default: ""
+      autoRelease:
+        type: boolean
+        description: "Release staging repository immediately?"
+        required: false
+        default: false
 
 jobs:
   release:
@@ -22,6 +27,6 @@ jobs:
     with:
       releaseVersion: ${{ inputs.releaseVersion }}
       developmentVersion: ${{ inputs.developmentVersion }}
-      autoRelease: true
+      autoRelease: ${{ inputs.autoRelease }}
       jdkVersion: "17"
     secrets: inherit
