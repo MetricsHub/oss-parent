@@ -16,11 +16,6 @@ on:
         required: true
         default: ""
 
-permissions:
-  id-token: write
-  contents: write
-  pages: write
-
 jobs:
   release:
     uses: metricshub/workflows/.github/workflows/maven-central-release.yml@main
