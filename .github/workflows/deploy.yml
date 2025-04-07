@@ -12,5 +12,5 @@ jobs:
     uses: metricshub/workflows/.github/workflows/maven-central-deploy.yml@main
     with:
       jdkVersion: "17"
-      mvnOptions: "-Ppompackaging"
+      mavenOptions: "-Ppompackaging"
     secrets: inherit
