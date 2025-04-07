@@ -427,12 +427,6 @@
 		<!-- Profile used for POM packaging projects -->
 		<profile>
 			<id>pompackaging</id>
-			<activation>
-				<property>
-					<name>packaging</name>
-					<value>pom</value>
-				</property>
-			</activation>
 			<build>
 				<plugins>
 
