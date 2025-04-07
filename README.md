@@ -44,3 +44,9 @@ But it is strongly recommended to only use [GitHub Actions "Release to Maven Cen
 
 License is Apache-2. Each source file must include the Apache-2 header (build will fail otherwise).
 To update source files with the proper header, simply execute the below command:
+
+```bash
+mvn license:update-file-header
+```
+
+
